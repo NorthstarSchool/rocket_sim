@@ -40,12 +40,12 @@ print "-------------------------------------------------------------------------
 #User variable prompts
 air_density = input(" Air Density \t \t \t (kilograms per cubic meter) \t: ")
 wet_mass = input(" Mass of Rocket With Fuel \t (kilograms) \t \t \t: ")
-dry_mass = input(" Mass of Rocket Without Fuel \t (kilograms): ")
-burnout = input(" Burnout \t \t \t (in seconds): ")
-avg_thrust = input(" Average Thrust \t \t (in newtons): ")
-gravity = input(" Gravity \t \t \t (in meters per second): ")
-drag_coef = input(" Drag Coefficient: ")
-diameter = input(" Diameter \t \t \t (in centimeters): ")
+dry_mass = input(" Mass of Rocket Without Fuel \t (kilograms) \t \t \t: ")
+burnout = input(" Burnout \t \t \t (in seconds) \t \t \t: ")
+avg_thrust = input(" Average Thrust \t \t (in newtons) \t \t \t: ")
+gravity = input(" Gravity \t \t \t (in meters per second) \t: ")
+drag_coef = input(" Drag Coefficient \t \t \t \t \t \t: ")
+diameter = input(" Diameter \t \t \t (in centimeters) \t \t: ")
 
 #End of user varible prompts
 
@@ -125,14 +125,6 @@ drag = 0
         #-----------------------------------------
 
 
-#Bug fixing tool kit
-print("Time (s), Thrust (weight units), Acceleration:, Velocity:, Altitude:, Drag:\n")
-#End Bug fixing tool kit
-
-
-        #-----------------------------------------
-
-
 #Calulations and writing
 for x in range(1, 631):
     time = time + time_step
@@ -143,9 +135,21 @@ for x in range(1, 631):
     velocity = velocity_calc(velocity, time_step, acceleration)
     altitude = altitude_calc(altitude, acceleration, velocity, time_step)
     file.write("%.2f, %.2f, %.2f, %.2f, %.2f, %.2f\n" % (time, thrust, acceleration, velocity, altitude, drag))
-    print("%.2f, %.2f, %.2f, %.2f, %.2f, %.2f\n" % (time, thrust, acceleration, velocity, altitude, drag))
+    
     if altitude < 0:
         break
 file.close()
 #End of calculations and writing
+
+
+        #-----------------------------------------
+
+
+#Bug fixing tool kit
+#print("Time (s), Thrust (weight units), Acceleration:, Velocity:, Altitude:, Drag:\n")
+#print("%.2f, %.2f, %.2f, %.2f, %.2f, %.2f\n" % (time, thrust, acceleration, velocity, altitude, drag))
+#End Bug fixing tool kit
+
+
+
 
